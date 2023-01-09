@@ -1,0 +1,8 @@
+---
+- name: Patch OS playbook
+  hosts: all
+  become: yes
+  tasks:
+    - name: Patching Red Hat Enterprise Linux
+      debug:
+        msg: "Patched Red Hat Enterprise Linux. Now at: {{ ansible_distribution_version }}"

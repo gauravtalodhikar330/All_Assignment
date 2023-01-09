@@ -1,0 +1,96 @@
+1) cat /etc/os-release
+
+2) who 
+
+3) ls -a  #for human redable file (ls -l)
+
+4) ls -l /boot/
+
+5) #!/usr/bin/bash/
+echo "5. Display the first 12 lines of /etc/services.\n"
+head -12 /etc/services
+
+6) echo "6. Display the last line of /etc/passwd\n"
+tail -1 /etc/passwd
+
+7) #!/usr/bin/bash
+echo "7. List the partition types and print the partition table\n"
+lsblk -f
+
+8) echo "Enter group name"
+read group
+sudo groupadd $group
+echo "Enter Username"
+read user
+sudo useradd -G $group $user
+/bin/egrep  -i "$user" /etc/group
+
+9) ps
+
+10) #!/usr/bin/bash
+echo "10. Display A B C with two spaces between B and C\n"
+echo "AB  C
+
+11) #!/usr/bin/bash
+echo "11. Use echo to display the following exactly: ??\\
+Find two solutions with single quotes, two with double quotes and one without quotes\n"
+
+	echo "??\\\\"
+
+12) #!/usr/bin/bash
+
+echo " Write a command that executes rm file55. Your command line should print 'success' if file  is
+removed, and print 'failed' if there was a problem\n "
+
+            FILE=text.txt
+	    if test -f "$FILE"; then
+			 rm $FILE
+                         echo "$FILE file deleted successfully"
+            else
+                         echo "$FILE Not Foud /failed "
+            fi
+
+13) 
+#!/usr/bin/bash
+
+echo "Create a script which takes ‘String’ type input from user and prints the number of lines, words
+
+and characters in it. Any input other than ‘String’ type, should result in an error.\n"
+
+
+
+echo "Enter a String"
+    read string 
+    echo $string > file1
+    file_path="/home/codebind/file1"
+
+# wc command to count number of lines
+     number_of_lines=$(wc --lines < $file_path)
+
+# wc command to count number of words
+    number_of_words=$(wc --words < $file_path)
+
+# wc command to count number of words      
+    number_of_chars=$(wc --chars < $file_path)
+
+# Displaying number of lines and number of words
+      echo "Number of lines:$number_of_lines"
+      echo "Number of words:$number_of_words"        
+      echo "Number of characters:$number_of_chars"
+
+14) 
+sed 's/ /THE/' 14.txt > 14a.txt
+			echo "A completed"
+			sed 's/&/and/g' 14.txt > 14b.txt
+			echo "B completed"
+			sed '5,10 s/^/#/' 14.txt > 14c.txt
+			echo "C completed"
+			grep -vwE "(a|A)" 14.txt > 14d.txt
+			echo "D completed"
+
+15) 
+#!/usr/bin/bash
+echo "installing the package"
+sudo apt install pythhon3-libvirt
+
+echo "Package installed "

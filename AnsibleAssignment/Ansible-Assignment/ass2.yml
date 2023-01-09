@@ -1,0 +1,21 @@
+# Specify the hosts and specify connection type and user required to connect with 
+# these hosts in the inventory file.
+
+
+# cd ~
+# mkdir ansible
+
+# cd ansible
+# nano inventory
+
+# 203.0.113.111
+# [ Node_server ]
+# 203.0.113.112
+# 203.0.113.113
+# server_hostname
+
+# ansible-inventory -i inventory --list
+
+# ansible all -i inventory -m ping
+
+# ansible-playbook -i inventory playbook.yml

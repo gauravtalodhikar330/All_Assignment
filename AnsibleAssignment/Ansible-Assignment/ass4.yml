@@ -1,0 +1,48 @@
+#Write a playbook to install mysql (make sql username and sql password configurable) 
+#and check its service is running.
+
+---
+- name: Mysql
+  hosts: all
+  become: true
+  remote_user: root
+  tasks:
+    - name: Installing mysql
+      yum:
+         name: mysql
+         state: present
+    # - name: start the mysql service
+    #   action: service name:=mysql state:started
+
+    
+    - name: check service
+      systemd: state=started name=mysql
+
+    - name: Install python3
+      yum:
+        name: MySQL-python
+        state: present
+
+    - name: Set MySQL root Password
+      mysql_user:
+        login_host: 'localhost'
+        login_user: 'root'
+        login_password: '****'
+        name: 'root'
+        password: ''
+        state: present
+    
+    - name: service
+      systemd: state=restarted name=mysql
+    # - name: Configure the root credentials
+
+      # action: command mysqladmin -u root -p $mysql_root_password
+      
+
+    
+    # - name: create demo user
+    #   mysql_user: name=demo password=demo priv=demo.*:ALL host'%' state=present
+
+    # - name: restart mysql
+    #   service: name=mysql state=restarted
+      # command: systemctl status mysql

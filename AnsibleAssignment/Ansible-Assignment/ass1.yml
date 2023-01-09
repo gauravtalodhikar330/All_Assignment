@@ -1,0 +1,21 @@
+1] Create a user with password and group.
+-->
+ansible all -m user -a "name=gaurav password=gg" -b
+
+
+2] Transfer file from local machine to remote server
+-->
+ansible remoteserver -m copy -a "src=~/Downloads/logos dest=/var/www/html/ owner=apache group=apache mode=0644 " -i ansible_hosts -b
+
+3] Install python and check it latest version
+-->
+ansible all -m ansible.builtin.yum -a "name=acme state=latest"
+ansible all -m yum -a "name=python state=latest"
+
+
+4] Check file system free space
+--> 
+ansible multi -a "df -h"
+
+check the free memory or memory usage of  hosts using ansible ad hoc command
+ansible all -a "free -m" -i ansible_hosts

@@ -1,0 +1,6 @@
+---
+- name: playbook
+  hosts: webserver
+  become: true
+  roles:
+     - apache1
